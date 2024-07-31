@@ -63,7 +63,7 @@ body {
   background-color: #d35400;
 }
 
-.button.double {
+.button.double-span {
   grid-column: span 2;
 }
 
@@ -72,8 +72,4 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
-}
-
-.button.double-span {
-  grid-column: span 2;
 }

@@ -18,16 +18,34 @@ function appendNumber(number) {
 
 function appendOperator(operator) {
   const lastChar = display.innerText.slice(-1);
-  if (["+", "-", "*", "/"].includes(lastChar)) {
+  if (["+", "-", "*", "/", "%", "^"].includes(lastChar)) {
     display.innerText = display.innerText.slice(0, -1) + operator;
   } else {
     display.innerText += operator;
   }
 }
 
+function calculateSquare() {
+  try {
+    display.innerText = Math.pow(eval(display.innerText), 2);
+  } catch {
+    display.innerText = "Error";
+  }
+}
+
+function calculateSquareRoot() {
+  try {
+    display.innerText = Math.sqrt(eval(display.innerText));
+  } catch {
+    display.innerText = "Error";
+  }
+}
+
 function calculate() {
   try {
-    display.innerText = eval(display.innerText);
+    let expression = display.innerText;
+    expression = expression.replace(/\^/g, "**"); // Handle exponentiation
+    display.innerText = eval(expression);
   } catch {
     display.innerText = "Error";
   }
